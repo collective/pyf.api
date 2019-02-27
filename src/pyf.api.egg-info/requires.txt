@@ -1,0 +1,13 @@
+elasticsearch-dsl
+pyramid
+setuptools
+
+[dev]
+pyramid_debugtoolbar
+pdbpp
+
+[testing]
+responses
+webtest
+pytest
+pytest-cov

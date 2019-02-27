@@ -1,0 +1,5 @@
+pyramid==1.10.2
+pyramid_debugtoolbar==4.5
+elasticsearch>=6.0.0,<7.0.0
+elasticsearch-dsl>=6.0.0,<7.0.0
+cornice==3.5.1
