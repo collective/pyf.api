@@ -22,13 +22,14 @@ class Search(object):
                 "terms", **{"classifiers": self.params["classifiers"]}
             )
         if self.params["text"]:
-            search = search.multimatch(
+            search = search.query(
+                "multi_match",
                 query=self.params["text"],
                 fields=["name^1.2", "summary^1.1", "description"],
             )
-            search = search.sort('_score')
+            search = search.sort("_score")
         else:
-            search = search.sort('_score')
+            search = search.sort("_score")
 
         # paginate
         search = search[self.start : self.start + self.size]
@@ -42,7 +43,6 @@ class Search(object):
             "batch": [],
         }
         for hit in response["hits"]["hits"]:
-            result["batch"].append(hit)
+            result["batch"].append(hit.to_dict()["_source"])
             result["size"] += 1
-        import pdb; pdb.set_trace()
         return result

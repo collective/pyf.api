@@ -15,7 +15,7 @@ class SearchView(Base):
     def post(self):
         search_params = {}
         search_params["text"] = self.request.params.get("text", "")
-        search_params["classifiers"] = self.request.params.get("classifiers", [])
+        search_params["classifiers"] = self.request.params.getall("classifier")
         start = int(self.request.params.get("start", 0))
         size = int(self.request.params.get("size", 20))
         if size > 500:
