@@ -18,6 +18,11 @@ For detailed installation instructions, read the `docs
 #. `Start elasticsearch
    <https://www.elastic.co/guide/en/elasticsearch/reference/current/starting-elasticsearch.html>`_
 
+API
+---
+
+
+
 License
 -------
 

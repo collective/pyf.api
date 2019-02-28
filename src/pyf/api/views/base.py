@@ -5,7 +5,7 @@ CORS_POLICY = {"origins": ("*",), "max_age": 3600}
 
 
 class Base(object):
-    def __init__(self, request):
+    def __init__(self, request, context=None):
         self.request = request
 
     @property
@@ -17,6 +17,3 @@ class Base(object):
 
     def _error(self, error):
         return {"result": {}, "error": error}
-
-    def _read_cfg(self, name):
-        return read_cfg(self.request.registry.settings["pyfapi.cfg_path"], name)

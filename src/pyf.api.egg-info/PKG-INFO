@@ -15,7 +15,8 @@ Description: Python Package Filter API
         Quickstart
         ----------
         
-        For detailed installation instructions, read the docs_.
+        For detailed installation instructions, read the `docs
+        <https://pyfapi.readthedocs.io/en/latest/installation.html>`_.
         
         #. `Install elasticsearch
            <https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html>`_
@@ -25,6 +26,11 @@ Description: Python Package Filter API
         #. `Start elasticsearch
            <https://www.elastic.co/guide/en/elasticsearch/reference/current/starting-elasticsearch.html>`_
         
+        API
+        ---
+        
+        
+        
         License
         -------
         
@@ -33,10 +39,10 @@ Description: Python Package Filter API
         Credits
         -------
         
-        .. _`@jensens`: https://github.com/jensens
-        .. _`@veit`: https://github.com/veit
-        .. _`@guziel`: https://github.com/guziel
-        .. _`@pypa`: https://github.com/pypa
+        * `@jensens <https://github.com/jensens>`_
+        * `@veit <https://github.com/veit>`_
+        * `@guziel <https://github.com/guziel>`_
+        * `@pypa <https://github.com/pypa>`_
         
         
         Changelog
@@ -59,5 +65,5 @@ Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: 3.6
 Classifier: Programming Language :: Python :: 3.7
 Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
-Provides-Extra: dev
 Provides-Extra: testing
+Provides-Extra: dev
