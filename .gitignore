@@ -13,3 +13,6 @@ env
 !.gitattributes
 !.gitignore
 /development-local.ini
+
+# Vue builded html
+/src/api/frontend/
