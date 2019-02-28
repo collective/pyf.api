@@ -65,5 +65,5 @@ Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: 3.6
 Classifier: Programming Language :: Python :: 3.7
 Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
-Provides-Extra: testing
 Provides-Extra: dev
+Provides-Extra: testing

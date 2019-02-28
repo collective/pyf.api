@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from collections import OrderedDict
+from itertools import islice
 from pyf.api.utils import get_search
 
 
@@ -15,7 +17,7 @@ class Search(object):
         self.start = start
         self.size = size
 
-    def result(self):
+    def _build_search(self):
         search = self.search
         if self.params["classifiers"]:
             search = self.search.filter(
@@ -27,22 +29,28 @@ class Search(object):
                 query=self.params["text"],
                 fields=["name^1.2", "summary^1.1", "description"],
             )
-            search = search.sort("_score")
+            search = search.sort('_score')
         else:
-            search = search.sort("_score")
+            search = search.sort('name')
+        return search
 
-        # paginate
-        search = search[self.start : self.start + self.size]
-
-        response = search.execute()
+    def result(self):
+        search = self._build_search()
+        collector = OrderedDict()
+        for hit in search.scan():
+            if hit['name'] not in collector:
+                collector[hit['name']] = hit
+                continue
+            existing = collector[hit['name']]
+            if existing['version'] > hit['version']:
+                collector[hit['name']] = hit
         result = {
-            "total": response["hits"]["total"],
+            "total": len(collector),
             "start": self.start,
             "size": 0,
-            "took": response["took"],
             "batch": [],
         }
-        for hit in response["hits"]["hits"]:
-            result["batch"].append(hit.to_dict()["_source"])
+        for name, hit in islice(collector.items(), self.start, self.start+self.size):
+            result["batch"].append(hit.to_dict())
             result["size"] += 1
         return result
