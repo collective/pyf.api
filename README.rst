@@ -29,5 +29,5 @@ Credits
 * `@jensens <https://github.com/jensens>`_
 * `@veit <https://github.com/veit>`_
 * `@guziel <https://github.com/guziel>`_
-* `@pypax <https://github.com/pypa>`_
+* `@pypa <https://github.com/pypa>`_
 
