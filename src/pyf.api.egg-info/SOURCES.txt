@@ -11,6 +11,7 @@ src/pyf.api.egg-info/not-zip-safe
 src/pyf.api.egg-info/requires.txt
 src/pyf.api.egg-info/top_level.txt
 src/pyf/api/__init__.py
+src/pyf/api/search.py
 src/pyf/api/utils.py
 src/pyf/api/tests/__init__.py
 src/pyf/api/tests/test_view_base.py

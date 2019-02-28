@@ -1,3 +1,4 @@
+cornice
 elasticsearch-dsl
 pyramid
 setuptools
