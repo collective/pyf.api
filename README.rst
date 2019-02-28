@@ -8,7 +8,7 @@ Quickstart
 ----------
 
 For detailed installation instructions, read the `docs
-<https://pyf.api.readthedocs.io/en/latest/install.html>`_.
+<https://pyfapi.readthedocs.io/en/latest/installation.html>`_.
 
 #. `Install elasticsearch
    <https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html>`_
