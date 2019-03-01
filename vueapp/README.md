@@ -7,16 +7,11 @@
 ``` bash
 # 1. Install NPM
 
-## 1.1 Install Curl to get node PPA
-sudo apt install curl
-
-## 1.2. To install the LTS release, use this PPA
-curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
-
-## 1.3 Install NPM
+## 1.1 Install NPM
 sudo apt install nodejs
+sudo apt install npm
 
-# 1.4. Test if its installed
+# 1.2. Test if its installed
 node -v
 npm -v
 
