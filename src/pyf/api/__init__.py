@@ -8,5 +8,6 @@ def main(global_config, **settings):
     config_params = {"settings": settings}
     config = Configurator(**config_params)
     config.include("cornice")
+    config.include("cornice_swagger")
     config.scan()
     return config.make_wsgi_app()

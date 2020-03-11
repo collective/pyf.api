@@ -5,6 +5,7 @@
 *.pyo
 *.sublime-workspace
 .*
+**/*.egg-info/*
 .Python
 .python-version
 __pycache__
