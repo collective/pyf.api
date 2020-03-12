@@ -15,5 +15,8 @@ env
 !.gitignore
 /development-local.ini
 
-# Vue builded html
+# Vue built html
 /src/api/frontend/
+
+# Ignore build folder
+build
