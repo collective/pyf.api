@@ -29,21 +29,31 @@ class Search(object):
                 query=self.params["text"],
                 fields=["name^1.2", "summary^1.1", "description"],
             )
-            search = search.sort('_score')
-        else:
-            search = search.sort('name')
+        search = search.sort(
+            '_score',
+            'name',
+            {'version_major': 'desc'},
+            {'version_minor': 'desc'},
+            {'version_bugfix': 'desc'},
+            {'version_postfix': 'desc'},
+        )
+        # we want the newest of an addon
+        # this can be done by field collapsing
+        # https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html#request-body-search-collapse  # noqa
+        search = search.extra(
+            collapse={
+                'field': 'name',
+            },
+        )
         return search
 
     def result(self):
         search = self._build_search()
         collector = OrderedDict()
-        for hit in search.scan():
-            if hit['name'] not in collector:
-                collector[hit['name']] = hit
-                continue
-            existing = collector[hit['name']]
-            if existing['version'] > hit['version']:
-                collector[hit['name']] = hit
+        for hit in search.execute():
+            key = "{0}|{1}".format(hit['name'], hit['version'])
+            print(hit['version_major'],hit['version_minor'],hit['version_bugfix'],hit['version_postfix'],)
+            collector[key] = hit
         result = {
             "total": len(collector),
             "start": self.start,
