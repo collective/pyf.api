@@ -60,11 +60,24 @@
         page: 1,
         totalPages: 1,
         size: 20,
+        default_classiers: [
+          'Framework :: Plone',
+        ],
+        versions: [
+          {"Framework :: Plone :: 4.3": "4.3"},
+          {"Framework :: Plone :: 5.0": "5.0"},
+          {"Framework :: Plone :: 5.1": "5.1"},
+          {"Framework :: Plone :: 5.2": "5.2"}
+        ],
+        type: ["Addon", "Core", "Theme"],
         classifiers: [
           'Development Status :: 5 - Production/Stable',
           'Environment :: Web Environment',
-          'Framework :: Plone',
           'Framework :: Plone :: 4.3',
+          'Framework :: Plone :: 5.0',
+          'Framework :: Plone :: 5.1',
+          'Framework :: Plone :: 5.2',
+          'Framework :: Plone :: Addon',
           'Framework :: Zope2',
           'Framework :: Zope3',
           'Intended Audience :: Developers',
@@ -73,6 +86,7 @@
           'Operating System :: OS Independent',
           'Programming Language :: Python',
           'Programming Language :: Python :: 2.7',
+          'Programming Language :: Python :: 3.7',
           'Topic :: Internet',
           'Topic :: Software Development :: Libraries :: Python Modules'
         ], // Random Classifier for temporary Testing
