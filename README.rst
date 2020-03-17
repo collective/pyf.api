@@ -4,6 +4,9 @@ Python Package Filter API
 The Python Package Filter API (``pyf.api``)  helps you easily identify and
 evaluate python packages using classifiers, stats etc.
 
+For a GUI have a look at: https://github.com/collective/pyf-svelte-gui
+
+
 Quickstart
 ----------
 

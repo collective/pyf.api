@@ -20,3 +20,9 @@ env
 
 # Ignore build folder
 build
+/bin
+/lib
+/share
+/etc
+/include
+/pip-selfcheck.json
