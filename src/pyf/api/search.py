@@ -52,7 +52,7 @@ class Search(object):
         collector = OrderedDict()
         for hit in search.execute():
             key = "{0}|{1}".format(hit['name'], hit['version'])
-            print(hit['version_major'],hit['version_minor'],hit['version_bugfix'],hit['version_postfix'],)
+            # print(hit['version_major'],hit['version_minor'],hit['version_bugfix'],hit['version_postfix'],)
             collector[key] = hit
         result = {
             "total": len(collector),
