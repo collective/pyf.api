@@ -22,7 +22,6 @@ plaster==1.0
 plaster-pastedeploy==0.7
 pluggy==0.13.1
 py==1.8.1
--e git+git@github.com:collective/pyf.api.git@c9738849350639474bff877bb0d154a3ebf7d03a#egg=pyf.api
 Pygments==2.6.1
 pyparsing==2.4.6
 pyramid==1.10.4
