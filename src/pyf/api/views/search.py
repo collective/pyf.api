@@ -28,6 +28,10 @@ class SearchView(Base):
             search = Search(self.request.registry.settings, search_params, start, size)
             result = search.result()
         except Exception as e:
-            logger.exception("Problem fetching result. {0}".format(e.with_traceback(None)))
-            return self._error("Problem fetching result. {0}".format(e.with_traceback(None)))
+            logger.exception(
+                "Problem fetching result. {0}".format(e.with_traceback(None))
+            )
+            return self._error(
+                "Problem fetching result. {0}".format(e.with_traceback(None))
+            )
         return self._result(result)

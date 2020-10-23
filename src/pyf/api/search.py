@@ -30,20 +30,20 @@ class Search(object):
                 fields=["name^2", "summary^1.2", "description"],
             )
         search = search.sort(
-            '_score',
-            'name_sorted',
-            {'version_major': 'desc'},
-            {'version_minor': 'desc'},
-            {'version_bugfix': 'desc'},
-            {'version_postfix': 'desc'},
-            {'version_raw': 'desc'},
+            "_score",
+            "name_sorted",
+            {"version_major": "desc"},
+            {"version_minor": "desc"},
+            {"version_bugfix": "desc"},
+            {"version_postfix": "desc"},
+            {"version_raw": "desc"},
         )
         # we want the newest of an addon
         # this can be done by field collapsing
         # https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html#request-body-search-collapse
         search = search.extra(
             collapse={
-                'field': 'name',
+                "field": "name",
             },
         )
         return search
@@ -52,7 +52,7 @@ class Search(object):
         search = self._build_search()
         collector = OrderedDict()
         for hit in search.execute():
-            key = "{0}|{1}".format(hit['name'], hit['version'])
+            key = "{0}|{1}".format(hit["name"], hit["version"])
             # print(hit['version_major'],hit['version_minor'],hit['version_bugfix'],hit['version_postfix'],)
             collector[key] = hit
         result = {
@@ -61,7 +61,7 @@ class Search(object):
             "size": 0,
             "batch": [],
         }
-        for name, hit in islice(collector.items(), self.start, self.start+self.size):
+        for name, hit in islice(collector.items(), self.start, self.start + self.size):
             result["batch"].append(hit.to_dict())
             result["size"] += 1
         return result
