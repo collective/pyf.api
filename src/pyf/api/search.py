@@ -25,21 +25,22 @@ class Search(object):
             )
         if self.params["text"]:
             search = search.query(
-                "multi_match",
+                "query_string",
                 query=self.params["text"],
-                fields=["name^1.2", "summary^1.1", "description"],
+                fields=["name^2", "summary^1.2", "description"],
             )
         search = search.sort(
             '_score',
-            'name',
+            'name_sorted',
             {'version_major': 'desc'},
             {'version_minor': 'desc'},
             {'version_bugfix': 'desc'},
             {'version_postfix': 'desc'},
+            {'version_raw': 'desc'},
         )
         # we want the newest of an addon
         # this can be done by field collapsing
-        # https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html#request-body-search-collapse  # noqa
+        # https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html#request-body-search-collapse
         search = search.extra(
             collapse={
                 'field': 'name',
