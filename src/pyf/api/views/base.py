@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 PREFIX = "/api"
 
 CORS_POLICY = {"origins": ("*",), "max_age": 3600}
 
 
-class Base(object):
+class Base:
     def __init__(self, request, context=None):
         self.request = request
 

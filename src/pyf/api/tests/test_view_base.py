@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
-import unittest
-
 from pyramid import testing
+
+import unittest
 
 
 class BaseTests(unittest.TestCase):

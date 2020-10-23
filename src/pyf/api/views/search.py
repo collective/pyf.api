@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-# -*- coding: utf-8 -*-
 from cornice.resource import resource
 from pyf.api.search import Search
 from pyf.api.views.base import Base
@@ -29,9 +28,9 @@ class SearchView(Base):
             result = search.result()
         except Exception as e:
             logger.exception(
-                "Problem fetching result. {0}".format(e.with_traceback(None))
+                "Problem fetching result. {}".format(e.with_traceback(None))
             )
             return self._error(
-                "Problem fetching result. {0}".format(e.with_traceback(None))
+                "Problem fetching result. {}".format(e.with_traceback(None))
             )
         return self._result(result)

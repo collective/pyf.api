@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from collections import OrderedDict
 from itertools import islice
 from pyf.api.utils import get_search
@@ -8,7 +7,7 @@ def sort_on_score(search, order):
     return search.sort({"_score": order})
 
 
-class Search(object):
+class Search:
     def __init__(self, settings, params, start, size):
         self.settings = settings
         self.params = params
@@ -52,7 +51,7 @@ class Search(object):
         search = self._build_search()
         collector = OrderedDict()
         for hit in search.execute():
-            key = "{0}|{1}".format(hit["name"], hit["version"])
+            key = "{}|{}".format(hit["name"], hit["version"])
             # print(hit['version_major'],hit['version_minor'],hit['version_bugfix'],hit['version_postfix'],)
             collector[key] = hit
         result = {
