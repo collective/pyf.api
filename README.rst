@@ -1,6 +1,8 @@
 Python Package Filter API
 =========================
 
+Archived, we now use the Typesense API directly, this package was working with elasticsearch backend.
+
 The Python Package Filter API (``pyf.api``)  helps you easily identify and
 evaluate python packages using classifiers, stats etc.
 
